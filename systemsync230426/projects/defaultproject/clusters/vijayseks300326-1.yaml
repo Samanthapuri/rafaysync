@@ -4,7 +4,7 @@ metadata:
   name: vijayseks300326-1
   project: defaultproject
   labels:
-    test: test  
+    test: test1  
 spec:
   blueprintConfig:
     name: default
