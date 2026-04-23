@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  description: jdevdemo
+  name: aws-alb
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartName: aws-load-balancer-controller
+      chartVersion: 1.11.0
+      repository: aws-alb
+      valuesPaths:
+      - name: file://artifacts/aws-alb/values.yaml
+    type: Helm
+  namespace: kube-system
+  sharing: {}
+  version: v2.11-1
+  versionState: active

@@ -1,0 +1,6 @@
+settings:
+  clusterName: {{{ .global.Rafay.ClusterName }}}
+  interruptionQueue: {{{ .global.Rafay.ClusterName }}}
+serviceAccount:
+  create: false
+  name: "karpenter"

@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: testonetwo
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/testonetwo/kconfig.yaml
+    type: Yaml
+  namespace: defaultns
+  sharing: {}
+  version: v1
+  versionState: active

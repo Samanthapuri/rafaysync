@@ -1,0 +1,16 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: testcertmanager
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: certmanager
+      chartName: cert-manager
+      chartVersion: v1.17.4
+    type: Helm
+  namespace: default
+  sharing: {}
+  version: v1
+  versionState: active

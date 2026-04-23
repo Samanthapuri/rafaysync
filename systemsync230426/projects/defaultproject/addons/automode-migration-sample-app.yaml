@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: automode-migration-sample-app
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/automode-migration-sample-app/gp2.yaml
+    type: Yaml
+  namespace: default
+  sharing: {}
+  version: v1
+  versionState: active

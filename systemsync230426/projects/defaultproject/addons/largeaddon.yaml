@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: largeaddon
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/largeaddon/large-package-0.1.0.tgz
+    type: Helm
+  namespace: vijaystestns
+  sharing: {}
+  version: v1
+  versionState: active

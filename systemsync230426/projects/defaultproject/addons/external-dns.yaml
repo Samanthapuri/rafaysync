@@ -1,0 +1,16 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  description: jdvdemo
+  name: external-dns
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/external-dns/external-dns.yaml
+    type: Yaml
+  namespace: kube-system
+  sharing: {}
+  version: v4
+  versionState: active

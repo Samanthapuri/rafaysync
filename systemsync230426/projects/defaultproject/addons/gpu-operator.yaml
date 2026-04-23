@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: gpu-operator
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: fake-gpu-operator
+      chartVersion: 0.0.59
+      valuesPaths:
+      - name: file://artifacts/gpu-operator/values.yaml
+    type: Helm
+  namespace: gpu-operator
+  sharing: {}
+  version: 0.0.59
+  versionState: active

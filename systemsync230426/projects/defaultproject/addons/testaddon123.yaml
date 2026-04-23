@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: testaddon123
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: testchart
+      repository: tfdemo
+      revision: master
+      valuesPaths:
+      - name: testchart/values.yaml
+    type: Helm
+  namespace: testnamespace
+  sharing: {}
+  version: v1
+  versionState: active

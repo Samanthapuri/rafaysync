@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: test-resource
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/test-resource/override (2).yaml
+    type: Yaml
+  namespace: default
+  sharing: {}
+  version: v2
+  versionState: active

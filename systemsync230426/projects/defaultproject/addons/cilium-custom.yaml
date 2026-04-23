@@ -1,0 +1,19 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  labels:
+    rafay.cni.name: cilium
+    rafay.type: cni
+  name: cilium-custom
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: cilium
+      chartVersion: 1.15.7
+    type: Helm
+  namespace: kube-system
+  sharing: {}
+  version: v2
+  versionState: active

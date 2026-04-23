@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: testyaml
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/testyaml/test.yaml
+    type: Yaml
+  namespace: testns
+  sharing: {}
+  version: v1
+  versionState: active

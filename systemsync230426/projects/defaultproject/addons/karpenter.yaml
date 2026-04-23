@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: karpenter
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: karpenter
+      chartVersion: 1.9.0
+      valuesPaths:
+      - name: file://artifacts/karpenter/values.yaml
+    type: Helm
+  namespace: kube-system
+  sharing: {}
+  version: 1.9.0-1
+  versionState: active

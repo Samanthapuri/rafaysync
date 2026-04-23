@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: update-cname
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/update-cname/awscli.yaml
+    type: Yaml
+  namespace: kube-system
+  sharing: {}
+  version: v6
+  versionState: active

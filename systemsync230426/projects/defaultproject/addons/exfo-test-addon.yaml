@@ -1,0 +1,17 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: exfo-test-addon
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      chartPath:
+        name: file://artifacts/exfo-test-addon/sensai.tgz
+      valuesPaths:
+      - name: file://artifacts/exfo-test-addon/zainksa-sensai-values-override.yaml
+    type: Helm
+  namespace: default
+  sharing: {}
+  version: v1
+  versionState: active

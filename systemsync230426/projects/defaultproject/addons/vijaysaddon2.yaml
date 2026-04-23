@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: vijaysaddon2
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/vijaysaddon2/deploy.yaml
+    type: Yaml
+  namespace: vijaystestns
+  sharing: {}
+  version: v1
+  versionState: active

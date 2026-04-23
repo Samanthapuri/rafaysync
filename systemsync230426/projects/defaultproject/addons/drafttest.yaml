@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: drafttest
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/drafttest/deploy.yaml
+    type: Yaml
+  namespace: default
+  sharing: {}
+  version: v1
+  versionState: active

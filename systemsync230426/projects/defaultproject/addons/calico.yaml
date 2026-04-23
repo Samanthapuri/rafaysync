@@ -1,0 +1,18 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: calico
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      catalog: default-helm
+      chartName: tigera-operator
+      chartVersion: v3.31.0
+      valuesPaths:
+      - name: file://artifacts/calico/values.yaml
+    type: Helm
+  namespace: kube-system
+  sharing: {}
+  version: v3.31.0
+  versionState: active
