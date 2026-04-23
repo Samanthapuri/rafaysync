@@ -3,8 +3,6 @@ kind: Cluster
 metadata:
   name: vijayseks300326-1
   project: defaultproject
-  labels:
-    test: test
 spec:
   blueprintConfig:
     name: default
@@ -58,7 +56,7 @@ spec:
       efaEnabled: false
       enableDetailedMonitoring: false
       instanceType: t3.xlarge
-      maxSize: 2
+      maxSize: 3
       minSize: 0
       name: c-ng
       overrideBootstrapCommand: |
