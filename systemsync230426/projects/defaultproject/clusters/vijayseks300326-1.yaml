@@ -51,14 +51,14 @@ spec:
       volumeThroughput: 125
       volumeType: gp3
     - ami: ami-047eb7dc2b9d31b99
-      desiredCapacity: 3
+      desiredCapacity: 2
       disableIMDSv1: false
       disablePodIMDS: false
       ebsOptimized: false
       efaEnabled: false
       enableDetailedMonitoring: false
       instanceType: t3.xlarge
-      maxSize: 3
+      maxSize: 2
       minSize: 0
       name: c-ng
       overrideBootstrapCommand: |
