@@ -27,6 +27,22 @@ spec:
     iam:
       withOIDC: true
     managedNodeGroups:
+    - amiFamily: Bottlerocket
+      desiredCapacity: 1
+      iam:
+        withAddonPolicies:
+          autoScaler: true
+          imageBuilder: true
+      instanceTypes:
+      - t3.xlarge
+      maxSize: 2
+      minSize: 1
+      name: bottlerocket-ng
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-team
+      volumeSize: 80
+      volumeType: gp3
     - ami: ami-047eb7dc2b9d31b99
       desiredCapacity: 2
       disableIMDSv1: false
@@ -49,22 +65,6 @@ spec:
       volumeIOPS: 3000
       volumeSize: 80
       volumeThroughput: 125
-      volumeType: gp3
-    - amiFamily: Bottlerocket
-      desiredCapacity: 1
-      iam:
-        withAddonPolicies:
-          autoScaler: true
-          imageBuilder: true
-      instanceTypes:
-      - t3.xlarge
-      maxSize: 2
-      minSize: 1
-      name: bottlerocket-ng
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-team
-      volumeSize: 80
       volumeType: gp3
     metadata:
       name: vijayseks300326-1
