@@ -11,11 +11,11 @@ spec:
     artifact:
       catalog: default-helm
       chartName: cilium
-      chartVersion: 1.17.12
+      chartVersion: 1.17.7
       valuesPaths:
       - name: file://artifacts/cilium/values (1).yaml
     type: Helm
   namespace: kube-system
   sharing: {}
-  version: v2
+  version: v3
   versionState: active

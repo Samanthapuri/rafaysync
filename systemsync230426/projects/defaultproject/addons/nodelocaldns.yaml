@@ -1,0 +1,15 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Addon
+metadata:
+  name: nodelocaldns
+  project: defaultproject
+spec:
+  artifact:
+    artifact:
+      paths:
+      - name: file://artifacts/nodelocaldns/nodelocaldns.yaml
+    type: Yaml
+  namespace: kube-system
+  sharing: {}
+  version: v2
+  versionState: active
