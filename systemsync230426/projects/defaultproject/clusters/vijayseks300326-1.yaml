@@ -50,6 +50,22 @@ spec:
       volumeSize: 80
       volumeThroughput: 125
       volumeType: gp3
+    - amiFamily: Bottlerocket
+      desiredCapacity: 1
+      iam:
+        withAddonPolicies:
+          autoScaler: true
+          imageBuilder: true
+      instanceTypes:
+      - t3.xlarge
+      maxSize: 2
+      minSize: 1
+      name: bottlerocket-ng
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-team
+      volumeSize: 80
+      volumeType: gp3
     metadata:
       name: vijayseks300326-1
       region: us-west-2
