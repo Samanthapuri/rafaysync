@@ -56,7 +56,7 @@ spec:
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
-      version: "1.32"
+      version: "1.33"
     network:
       cni:
         name: aws-cni
