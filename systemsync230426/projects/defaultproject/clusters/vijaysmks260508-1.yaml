@@ -1,0 +1,39 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: vijaysmks260508-1
+  project: defaultproject
+spec:
+  blueprint:
+    name: custom-cni
+    version: v4
+  config:
+    autoApproveNodes: true
+    installerTtl: 360
+    kubeletConfigurationOverrides: |
+      clusterDNS:
+      - 169.254.20.10
+      - 10.96.0.10
+    kubeletExtraArgs:
+      max-pods: "250"
+    kubernetesVersion: v1.35.0
+    network:
+      cni:
+        name: CNI-via-Blueprint
+      podSubnet: 10.244.0.0/16
+      serviceSubnet: 10.96.0.0/12
+    nodes:
+    - arch: amd64
+      hostname: masterworker-d7x0cs-1
+      operatingSystem: Ubuntu22.04
+      privateIP: 10.0.0.181
+      roles:
+      - ControlPlane
+      - Worker
+      ssh:
+        ipAddress: 147.224.254.230
+    ssh:
+      port: "22"
+      privateKeyPath: /Users/vijaysamanthapuri/Documents/private_keys/oci_mks.key
+      username: ubuntu
+  type: mks
