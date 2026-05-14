@@ -36,7 +36,7 @@ spec:
       instanceTypes:
       - t3.xlarge
       maxSize: 2
-      minSize: 1
+      minSize: 0
       name: bottlerocket-ng
       tags:
         email: vijaysamanthapuri@rafay.co
