@@ -27,6 +27,20 @@ spec:
     iam:
       withOIDC: true
     managedNodeGroups:
+    - ami: ami-000037bec3bcf510e
+      desiredCapacity: 1
+      instanceType: t3.xlarge
+      maxSize: 1
+      minSize: 1
+      name: al2023
+      overrideBootstrapCommand: |
+        [AmazonLinux2023]
+      privateNetworking: false
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      volumeSize: 100
+      volumetype: gp3
     - amiFamily: Bottlerocket
       desiredCapacity: 1
       iam:
