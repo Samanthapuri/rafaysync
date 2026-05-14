@@ -32,6 +32,35 @@ spec:
       instanceType: t3.xlarge
       maxSize: 1
       minSize: 1
+      name: al2023-1
+      overrideBootstrapCommand: |
+        [AmazonLinux2023]
+      preBootstrapCommands:
+      - ls -ld /etc/kubernetes/kubelet/config.json.d > /dev/null 2>&1 || mkdir -p
+        /etc/kubernetes/kubelet/config.json.d
+      - |
+        echo '{
+                "apiVersion": "kubelet.config.k8s.io/v1beta1",
+                "kind": "KubeletConfiguration",
+                 "evictionHard": {
+                    "memory.available": "100Mi",
+                    "nodefs.available": "10%",
+                    "nodefs.inodesFree": "5%",
+                    "imagefs.available": "15%",
+                    "imagefs.inodesFree": "5%"
+                }
+              }' > /etc/kubernetes/kubelet/config.json.d/50-custom-kubelet.conf
+      privateNetworking: false
+      tags:
+        email: vijaysamanthapuri@rafay.co
+        env: cs-demo
+      volumeSize: 100
+      volumetype: gp3
+    - ami: ami-000037bec3bcf510e
+      desiredCapacity: 1
+      instanceType: t3.xlarge
+      maxSize: 1
+      minSize: 1
       name: al2023
       overrideBootstrapCommand: |
         [AmazonLinux2023]
