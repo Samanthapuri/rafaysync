@@ -7,8 +7,8 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: default
-    version: latest
+    name: custombp
+    version: 4.0.0
   cloudCredentials: vijaysrole
   config:
     addons:
@@ -88,8 +88,8 @@ spec:
     - ami: ami-000037bec3bcf510e
       desiredCapacity: 1
       instanceType: t3.xlarge
-      maxSize: 1
-      minSize: 1
+      maxSize: 2
+      minSize: 0
       name: al2023
       overrideBootstrapCommand: |
         [AmazonLinux2023]
