@@ -33,14 +33,6 @@ spec:
       - Worker
       ssh:
         ipAddress: 129.146.242.133
-    - arch: amd64
-      hostname: worker-mxgthl-1
-      operatingSystem: Ubuntu22.04
-      privateIP: 10.0.0.160
-      roles:
-      - Worker
-      ssh:
-        ipAddress: 129.146.130.162
     ssh:
       port: "22"
       privateKeyPath: /Users/vijaysamanthapuri/Documents/private_keys/oci_mks.key
