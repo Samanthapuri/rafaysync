@@ -5,7 +5,7 @@ metadata:
   project: defaultproject
 spec:
   blueprint:
-    name: default
+    name: minimal
     version: 4.1.0
   config:
     autoApproveNodes: true
