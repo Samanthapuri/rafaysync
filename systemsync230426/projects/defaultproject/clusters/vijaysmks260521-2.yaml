@@ -1,0 +1,48 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: Cluster
+metadata:
+  name: vijaysmks260521-2
+  project: defaultproject
+spec:
+  blueprint:
+    name: default
+    version: 4.1.0
+  config:
+    autoApproveNodes: true
+    installerTtl: 360
+    kubeletConfigurationOverrides: |
+      clusterDNS:
+      - 169.254.20.10
+      - 10.96.0.10
+    kubeletExtraArgs:
+      max-pods: "250"
+    kubernetesVersion: v1.32.11
+    network:
+      cni:
+        name: Calico
+        version: 3.28.1
+      podSubnet: 10.244.0.0/16
+      serviceSubnet: 10.96.0.0/12
+    nodes:
+    - arch: amd64
+      hostname: masterworker-mxgthl-1
+      operatingSystem: Ubuntu22.04
+      privateIP: 10.0.0.64
+      roles:
+      - ControlPlane
+      - Worker
+      ssh:
+        ipAddress: 129.146.242.133
+    - arch: amd64
+      hostname: worker-mxgthl-1
+      operatingSystem: Ubuntu22.04
+      privateIP: 10.0.0.160
+      roles:
+      - Worker
+      ssh:
+        ipAddress: 129.146.130.162
+    ssh:
+      port: "22"
+      privateKeyPath: /Users/vijaysamanthapuri/Documents/private_keys/oci_mks.key
+      username: ubuntu
+  type: mks
