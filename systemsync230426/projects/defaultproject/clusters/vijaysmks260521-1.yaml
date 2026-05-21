@@ -5,8 +5,8 @@ metadata:
   project: defaultproject
 spec:
   blueprint:
-    name: minimal
-    version: latest
+    name: oldbp
+    version: v1
   config:
     autoApproveNodes: true
     installerTtl: 360
