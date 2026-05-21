@@ -5,8 +5,8 @@ metadata:
   project: defaultproject
 spec:
   blueprint:
-    name: default
-    version: 4.1.0
+    name: minimal
+    version: latest
   config:
     autoApproveNodes: true
     installerTtl: 360
@@ -25,14 +25,6 @@ spec:
       serviceSubnet: 10.96.0.0/12
     nodes:
     - arch: amd64
-      hostname: worker-fa3rcp-1
-      operatingSystem: Ubuntu22.04
-      privateIP: 10.0.0.135
-      roles:
-      - Worker
-      ssh:
-        ipAddress: 161.153.42.102
-    - arch: amd64
       hostname: masterworker-fa3rcp-1
       operatingSystem: Ubuntu22.04
       privateIP: 10.0.0.23
@@ -41,6 +33,14 @@ spec:
       - Worker
       ssh:
         ipAddress: 147.224.251.253
+    - arch: amd64
+      hostname: worker-fa3rcp-1
+      operatingSystem: Ubuntu22.04
+      privateIP: 10.0.0.135
+      roles:
+      - Worker
+      ssh:
+        ipAddress: 161.153.42.102
     ssh:
       port: "22"
       privateKeyPath: /Users/vijaysamanthapuri/Documents/private_keys/oci_mks.key
