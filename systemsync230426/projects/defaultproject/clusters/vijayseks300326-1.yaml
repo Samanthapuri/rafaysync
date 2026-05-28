@@ -26,12 +26,18 @@ spec:
         efsCSIController: true
     iam:
       withOIDC: true
+    identityMappings:
+      arns:
+      - arn: arn:aws:iam::679196758854:role/vijaysworkerrole
+        group:
+        - system:masters
+        username: test
     managedNodeGroups:
     - ami: ami-000037bec3bcf510e
       desiredCapacity: 1
       instanceType: t3.xlarge
-      maxSize: 1
-      minSize: 1
+      maxSize: 2
+      minSize: 0
       name: al2023-3
       overrideBootstrapCommand: |
         [AmazonLinux2023]
