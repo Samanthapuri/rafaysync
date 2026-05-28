@@ -11,6 +11,17 @@ spec:
     version: 4.1.0
   cloudCredentials: vijaysrole
   config:
+    accessConfig:
+      accessEntries:
+      - accessPolicies:
+        - accessScope:
+            type: cluster
+          policyARN: arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy
+        kubernetesUsername: test
+        principalARN: arn:aws:iam::679196758854:role/vijaysworkerrole
+        type: STANDARD
+      authenticationMode: API_AND_CONFIG_MAP
+      bootstrapClusterCreatorAdminPermissions: true
     addons:
     - name: coredns
       version: latest
