@@ -7,21 +7,10 @@ metadata:
   project: defaultproject
 spec:
   blueprintConfig:
-    name: custombp
-    version: 4.1.0
-  cloudCredentials: vijaysrole
+    name: default
+    version: latest
+  cloudCredentials: disney-eks-test-role
   config:
-    accessConfig:
-      accessEntries:
-      - accessPolicies:
-        - accessScope:
-            type: cluster
-          policyARN: arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy
-        kubernetesUsername: test
-        principalARN: arn:aws:iam::679196758854:role/vijaysworkerrole
-        type: STANDARD
-      authenticationMode: API_AND_CONFIG_MAP
-      bootstrapClusterCreatorAdminPermissions: true
     addons:
     - name: coredns
       version: latest
@@ -31,109 +20,32 @@ spec:
       version: latest
     - name: aws-ebs-csi-driver
       version: latest
-    - name: aws-efs-csi-driver
-      version: v2.3.1-eksbuild.1
-      wellKnownPolicies:
-        efsCSIController: true
     iam:
+      serviceAccounts:
+      - attachPolicy:
+          Statement:
+          - Action: ec2:DescribeInstances
+            Effect: Allow
+            Resource: '*'
+            Sid: VisualEditor0
+          Version: "2012-10-17"
+        metadata:
+          name: testsa
+          namespace: default
       withOIDC: true
-    identityMappings:
-      arns:
-      - arn: arn:aws:iam::679196758854:role/vijaysworkerrole
-        group:
-        - system:masters
-        username: test
     managedNodeGroups:
-    - ami: ami-000037bec3bcf510e
+    - amiFamily: AmazonLinux2023
       desiredCapacity: 1
       instanceType: t3.xlarge
-      maxSize: 2
-      minSize: 0
+      maxSize: 1
+      minSize: 1
       name: al2023-3
-      overrideBootstrapCommand: |
-        [AmazonLinux2023]
-      preBootstrapCommands:
-      - ls -ld /etc/kubernetes/kubelet/config.json.d > /dev/null 2>&1 || mkdir -p
-        /etc/kubernetes/kubelet/config.json.d
-      - |
-        echo '{
-        "apiVersion": "kubelet.config.k8s.io/v1beta1",
-        "kind": "KubeletConfiguration",
-        "evictionHard": {
-           "memory.available": "1234Mi",
-           "nodefs.available": "12%",
-           "nodefs.inodesFree": "11%",
-           "imagefs.available": "10%",
-           "imagefs.inodesFree": "9%"
-           }
-         }' > /etc/kubernetes/kubelet/config.json.d/50-custom-kubelet.conf
       privateNetworking: false
       tags:
         email: vijaysamanthapuri@rafay.co
         env: cs-demo
       volumeSize: 100
       volumetype: gp3
-    - ami: ami-000037bec3bcf510e
-      desiredCapacity: 1
-      instanceType: t3.xlarge
-      maxSize: 2
-      minSize: 0
-      name: al2023-1
-      overrideBootstrapCommand: |
-        [AmazonLinux2023]
-      preBootstrapCommands:
-      - ls -ld /etc/kubernetes/kubelet/config.json.d > /dev/null 2>&1 || mkdir -p
-        /etc/kubernetes/kubelet/config.json.d
-      - |
-        echo '{
-                "apiVersion": "kubelet.config.k8s.io/v1beta1",
-                "kind": "KubeletConfiguration",
-                 "evictionHard": {
-                    "memory.available": "100Mi",
-                    "nodefs.available": "10%",
-                    "nodefs.inodesFree": "5%",
-                    "imagefs.available": "15%",
-                    "imagefs.inodesFree": "5%"
-                }
-              }' > /etc/kubernetes/kubelet/config.json.d/50-custom-kubelet.conf
-      privateNetworking: false
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-demo
-      volumeSize: 100
-      volumetype: gp3
-    - ami: ami-000037bec3bcf510e
-      desiredCapacity: 1
-      instanceType: t3.xlarge
-      maxSize: 2
-      minSize: 0
-      name: al2023
-      overrideBootstrapCommand: |
-        [AmazonLinux2023]
-      preBootstrapCommands:
-      - echo hi
-      privateNetworking: false
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-demo
-      volumeSize: 100
-      volumetype: gp3
-    - amiFamily: Bottlerocket
-      desiredCapacity: 1
-      iam:
-        withAddonPolicies:
-          autoScaler: true
-          imageBuilder: true
-      instanceTypes:
-      - t3.xlarge
-      maxSize: 2
-      minSize: 0
-      name: bottlerocket-ng
-      tags:
-        email: vijaysamanthapuri@rafay.co
-        env: cs-team
-      volumeSize: 80
-      volumeType: gp3
     metadata:
       name: vijayseks300326-1
       region: us-west-2
@@ -152,4 +64,5 @@ spec:
         publicAccess: true
       nat:
         gateway: Single
+  crossAccountRoleArn: arn:aws:iam::211125364662:role/sample-disney-role
   type: aws-eks
